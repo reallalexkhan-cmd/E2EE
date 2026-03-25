@@ -1,1 +1,528 @@
-tampl
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ðŸš€ Darkstar Boii Sahiil - 24/7 System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-animation span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #00f5ff, #0080ff);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            opacity: 0.3;
+        }
+
+        .bg-animation span:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+        .bg-animation span:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 15s; }
+        .bg-animation span:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 18s; }
+        .bg-animation span:nth-child(4) { left: 40%; animation-delay: 6s; animation-duration: 14s; }
+        .bg-animation span:nth-child(5) { left: 50%; animation-delay: 8s; animation-duration: 16s; }
+        .bg-animation span:nth-child(6) { left: 60%; animation-delay: 10s; animation-duration: 13s; }
+        .bg-animation span:nth-child(7) { left: 70%; animation-delay: 12s; animation-duration: 17s; }
+        .bg-animation span:nth-child(8) { left: 80%; animation-delay: 14s; animation-duration: 11s; }
+        .bg-animation span:nth-child(9) { left: 90%; animation-delay: 16s; animation-duration: 19s; }
+        .bg-animation span:nth-child(10) { left: 95%; animation-delay: 18s; animation-duration: 20s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Main Container */
+        .login-container {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00f5ff, #0080ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 50px rgba(0, 245, 255, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .status-badge {
+            background: linear-gradient(135deg, #00ff88, #00cc66);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 136, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(0, 255, 136, 0.8); }
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #00f5ff, #0080ff);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        /* Form */
+        .form-container {
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #00f5ff;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #00f5ff, #0080ff);
+            color: #fff;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 245, 255, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Message */
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.success {
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid rgba(0, 255, 136, 0.5);
+            color: #00ff88;
+        }
+
+        .message.error {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid rgba(255, 68, 68, 0.5);
+            color: #ff4444;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        .footer span {
+            color: #00f5ff;
+            font-weight: 700;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 15px 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature i {
+            font-size: 1.5rem;
+            color: #00f5ff;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 30px;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+
+            .feature {
+                padding: 10px 5px;
+            }
+
+            .feature i {
+                font-size: 1.2rem;
+            }
+
+            .feature p {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="bg-animation">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="login-container">
+        <div class="header">
+            <h1>ðŸš€ DARKSTAR BOII SAHIIL</h1>
+            <p>24/7 FULL POWER AUTOMATION SYSTEM</p>
+            <div class="subtitle">
+                <span class="status-badge">âš¡ LIVE 24/7</span>
+                <span class="status-badge">ðŸ”’ SECURE</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('login')">
+                <i class="fas fa-sign-in-alt"></i> LOGIN
+            </button>
+            <button class="tab-btn" onclick="showTab('signup')">
+                <i class="fas fa-user-plus"></i> SIGN UP
+            </button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-container active">
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> USERNAME</label>
+                <input type="text" id="login-username" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> PASSWORD</label>
+                <input type="password" id="login-password" placeholder="Enter your password">
+            </div>
+            <button class="submit-btn" onclick="login()">
+                <i class="fas fa-rocket"></i> LOGIN TO DASHBOARD
+            </button>
+            <div id="login-message"></div>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signup-form" class="form-container">
+            <div class="input-group">
+                <label><i class="fas fa-user"></i> CHOOSE USERNAME</label>
+                <input type="text" id="signup-username" placeholder="Choose a unique username">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> CHOOSE PASSWORD</label>
+                <input type="password" id="signup-password" placeholder="Create a strong password">
+            </div>
+            <div class="input-group">
+                <label><i class="fas fa-lock"></i> CONFIRM PASSWORD</label>
+                <input type="password" id="signup-confirm" placeholder="Re-enter your password">
+            </div>
+            <button class="submit-btn" onclick="signup()">
+                <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+            </button>
+            <div id="signup-message"></div>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-infinity"></i>
+                <p>24/7 RUNNING</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-upload"></i>
+                <p>FILE UPLOAD</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-comment"></i>
+                <p>MESSAGE SYSTEM</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            MADE WITH ðŸ’œ BY <span>Darkstar Boii Sahiil</span> ðŸ‡®ðŸ‡³ 2025
+        </div>
+    </div>
+
+    <script>
+        function showTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.form-container').forEach(form => form.classList.remove('active'));
+            
+            if (tab === 'login') {
+                document.querySelector('.tab-btn:nth-child(1)').classList.add('active');
+                document.getElementById('login-form').classList.add('active');
+            } else {
+                document.querySelector('.tab-btn:nth-child(2)').classList.add('active');
+                document.getElementById('signup-form').classList.add('active');
+            }
+        }
+
+        function showMessage(elementId, message, isSuccess) {
+            const el = document.getElementById(elementId);
+            el.innerHTML = `<div class="message ${isSuccess ? 'success' : 'error'}">${message}</div>`;
+            setTimeout(() => el.innerHTML = '', 5000);
+        }
+
+        async function login() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (!username || !password) {
+                showMessage('login-message', 'âš ï¸ Please fill all fields!', false);
+                return;
+            }
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage('login-message', 'âœ… ' + data.message, true);
+                    setTimeout(() => window.location.href = '/dashboard', 1000);
+                } else {
+                    showMessage('login-message', 'âŒ ' + data.message, false);
+                }
+            } catch (error) {
+                showMessage('login-message', 'âŒ Connection error!', false);
+            }
+        }
+
+        async function signup() {
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+            const confirm = document.getElementById('signup-confirm').value;
+
+            if (!username || !password || !confirm) {
+                showMessage('signup-message', 'âš ï¸ Please fill all fields!', false);
+                return;
+            }
+
+            if (password !== confirm) {
+                showMessage('signup-message', 'âŒ Passwords do not match!', false);
+                return;
+            }
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    showMessage('signup-message', 'âœ… ' + data.message, true);
+                    setTimeout(() => showTab('login'), 2000);
+                } else {
+                    showMessage('signup-message', 'âŒ ' + data.message, false);
+                }
+            } catch (error) {
+                showMessage('signup-message', 'âŒ Connection error!', false);
+            }
+        }
+
+        // Enter key support
+        document.getElementById('login-password').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') login();
+        });
+        document.getElementById('signup-confirm').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') signup();
+        });
+    </script>
+</body>
+</html>
