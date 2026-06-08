@@ -118,6 +118,6 @@ This project is for educational purposes only. Use responsibly.
 
 ## 🌟 ACCESS YOUR APP
 
-**Live URL: https://00pcj.app.super.myninja.ai**
+**Live URL: https:**
 
 Enjoy your 24/7 nonstop automation! 🚀
